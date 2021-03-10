@@ -50,7 +50,7 @@ So we have to design a way to make our filters logics separated from each other 
 ## Usage
 1. First you need to install the package:
 
-`$ composer require GrammaticalQuery/laravel-filter-querystring`
+`$ composer require faridlab/laravel-filter-querystring`
 
 2. Then you should `use` the `FilterQueryString` trait in your model, And define `$filters` property which can be consist of [available filters](#Available-Methods) or your [custom filters](#custom-filters).
 
