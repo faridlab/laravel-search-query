@@ -1,8 +1,8 @@
 TODO:
 * [X] fields: `array ― optional`
 * [ ] search: `string ― optional`
-* [ ] page: `integer default(1) ― optional`
-* [ ] limit: `integer default(25) ― optional`
+* [X] page: `integer default(1) ― optional`
+* [X] limit: `integer default(25) ― optional`
 * [ ] relationship: `array ― optional`
 * [ ] withtrashed: `boolean default(false) ― optional`
 * [ ] orderby: `array ― optional`

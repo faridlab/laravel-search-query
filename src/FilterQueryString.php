@@ -3,7 +3,14 @@
 namespace GrammaticalQuery\FilterQueryString;
 
 use Illuminate\Pipeline\Pipeline;
-use GrammaticalQuery\FilterQueryString\Filters\{OrderbyClause, WhereClause, SelectClause, WhereInClause, WhereLikeClause};
+use GrammaticalQuery\FilterQueryString\Filters\{
+    OrderbyClause,
+    WhereClause,
+    SelectClause,
+    LimitClause,
+    WhereInClause,
+    WhereLikeClause
+};
 use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{GreaterOrEqualTo, GreaterThan, LessOrEqualTo, LessThan};
 use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\Between\{Between, NotBetween};
 
@@ -14,6 +21,8 @@ trait FilterQueryString {
     private $availableFilters = [
         'default' => WhereClause::class,
         'fields' => SelectClause::class,
+        'limit' => LimitClause::class,
+        'page' => LimitClause::class,
         'sort' => OrderbyClause::class,
         'greater' => GreaterThan::class,
         'greater_or_equal' => GreaterOrEqualTo::class,
@@ -30,10 +39,19 @@ trait FilterQueryString {
         $filters = collect($this->getFilters($filters))->map(function ($values, $filter) {
             return $this->resolve($filter, $values);
         })->toArray();
+
+        if(!isset($filters['limit'])) {
+            $filters['limit'] = $this->resolve('limit', 25);
+        }
+
+        if(!isset($filters['page'])) {
+            $filters['page'] = $this->resolve('page', 1);
+        }
+
         return app(Pipeline::class)
-            ->send($query)
-            ->through($filters)
-            ->thenReturn();
+        ->send($query)
+        ->through($filters)
+        ->thenReturn();
     }
 
     private function getFilters($filters)
