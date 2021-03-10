@@ -1,5 +1,5 @@
 {
-  "name": "GrammaticalQuery",
+  "name": "faridlab/laravel-grammatical-query",
   "description": "Grammatical Query - Laravel package for filtering queries based on url query string parameters",
   "keywords": [
     "query",
