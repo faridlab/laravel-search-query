@@ -3,7 +3,7 @@
 namespace GrammaticalQuery\FilterQueryString;
 
 use Illuminate\Pipeline\Pipeline;
-use GrammaticalQuery\FilterQueryString\Filters\{OrderbyClause, WhereClause, WhereInClause, WhereLikeClause};
+use GrammaticalQuery\FilterQueryString\Filters\{OrderbyClause, WhereClause, SelectClause, WhereInClause, WhereLikeClause};
 use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{GreaterOrEqualTo, GreaterThan, LessOrEqualTo, LessThan};
 use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\Between\{Between, NotBetween};
 
@@ -13,6 +13,7 @@ trait FilterQueryString {
 
     private $availableFilters = [
         'default' => WhereClause::class,
+        'fields' => SelectClause::class,
         'sort' => OrderbyClause::class,
         'greater' => GreaterThan::class,
         'greater_or_equal' => GreaterOrEqualTo::class,
@@ -29,7 +30,6 @@ trait FilterQueryString {
         $filters = collect($this->getFilters($filters))->map(function ($values, $filter) {
             return $this->resolve($filter, $values);
         })->toArray();
-
         return app(Pipeline::class)
             ->send($query)
             ->through($filters)
