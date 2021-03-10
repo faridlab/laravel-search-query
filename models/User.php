@@ -1,9 +1,9 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Models;
+namespace GrammaticalQuery\FilterQueryString\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Mehradsadeghi\FilterQueryString\FilterQueryString;
+use GrammaticalQuery\FilterQueryString\FilterQueryString;
 
 class User extends Model
 {

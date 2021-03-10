@@ -1,6 +1,6 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses\Between;
+namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\Between;
 
 use Illuminate\Database\Eloquent\Builder;
 

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Mehradsadeghi\FilterQueryString\Models\User;
+use GrammaticalQuery\FilterQueryString\Models\User;
 
 class UsersTableSeeder extends Seeder
 {

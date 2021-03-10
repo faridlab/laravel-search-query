@@ -1,9 +1,9 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Tests;
+namespace GrammaticalQuery\FilterQueryString\Tests;
 
 use Illuminate\Support\Facades\Route;
-use Mehradsadeghi\FilterQueryString\Models\User;
+use GrammaticalQuery\FilterQueryString\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

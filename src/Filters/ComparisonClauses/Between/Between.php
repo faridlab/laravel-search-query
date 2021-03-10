@@ -1,8 +1,8 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses\Between;
+namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\Between;
 
-use Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses\BaseComparison;
+use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\BaseComparison;
 
 class Between extends BaseComparison
 {

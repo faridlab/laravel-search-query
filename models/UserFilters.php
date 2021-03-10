@@ -1,6 +1,6 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Models;
+namespace GrammaticalQuery\FilterQueryString\Models;
 
 trait UserFilters {
 

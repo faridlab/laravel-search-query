@@ -1,6 +1,6 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses;
+namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
 
 class GreaterOrEqualTo extends BaseComparison
 {

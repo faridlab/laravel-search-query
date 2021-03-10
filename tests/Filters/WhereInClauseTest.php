@@ -1,9 +1,9 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Tests\Filters;
+namespace GrammaticalQuery\FilterQueryString\Tests\Filters;
 
-use Mehradsadeghi\FilterQueryString\Models\User;
-use Mehradsadeghi\FilterQueryString\Tests\TestCase;
+use GrammaticalQuery\FilterQueryString\Models\User;
+use GrammaticalQuery\FilterQueryString\Tests\TestCase;
 
 class WhereInClauseTest extends TestCase
 {
@@ -16,7 +16,7 @@ class WhereInClauseTest extends TestCase
 
         $response->assertJsonCount(2);
     }
-    
+
     /** @test */
     public function wherein_clause_with_empty_field_and_values_will_be_ignored()
     {
@@ -26,7 +26,7 @@ class WhereInClauseTest extends TestCase
 
         $response->assertJsonCount(User::count());
     }
-    
+
     /** @test */
     public function wherein_clause_with_empty_values()
     {

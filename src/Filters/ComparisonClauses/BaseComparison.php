@@ -1,9 +1,9 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses;
+namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
 
 use Illuminate\Database\Eloquent\Builder;
-use Mehradsadeghi\FilterQueryString\Filters\BaseClause;
+use GrammaticalQuery\FilterQueryString\Filters\BaseClause;
 
 abstract class BaseComparison extends BaseClause
 {

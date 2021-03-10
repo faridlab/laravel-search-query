@@ -1,11 +1,11 @@
 <?php
 
-namespace Mehradsadeghi\FilterQueryString;
+namespace GrammaticalQuery\FilterQueryString;
 
 use Illuminate\Pipeline\Pipeline;
-use Mehradsadeghi\FilterQueryString\Filters\{OrderbyClause, WhereClause, WhereInClause, WhereLikeClause};
-use Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses\{GreaterOrEqualTo, GreaterThan, LessOrEqualTo, LessThan};
-use Mehradsadeghi\FilterQueryString\Filters\ComparisonClauses\Between\{Between, NotBetween};
+use GrammaticalQuery\FilterQueryString\Filters\{OrderbyClause, WhereClause, WhereInClause, WhereLikeClause};
+use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{GreaterOrEqualTo, GreaterThan, LessOrEqualTo, LessThan};
+use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\Between\{Between, NotBetween};
 
 trait FilterQueryString {
 

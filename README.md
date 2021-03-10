@@ -42,7 +42,7 @@ return $users->get();
 This works, But it's not a good practice.
 
 When the number of parameters starts to grow, The number of these kind of `if` statements also grows and your code gets huge and hard to maintain.
- 
+
 Also it's against the Open/Closed principal of SOLID principles, Because when you have a new parameter, You need to get into your existing code and add a new logic (which may breaks the existing implementations).
 
 So we have to design a way to make our filters logics separated from each other and apply them into the final query, which is the whole idea behind this package.
@@ -50,12 +50,12 @@ So we have to design a way to make our filters logics separated from each other 
 ## Usage
 1. First you need to install the package:
 
-`$ composer require mehradsadeghi/laravel-filter-querystring`
+`$ composer require GrammaticalQuery/laravel-filter-querystring`
 
 2. Then you should `use` the `FilterQueryString` trait in your model, And define `$filters` property which can be consist of [available filters](#Available-Methods) or your [custom filters](#custom-filters).
 
 ```php
-use Mehradsadeghi\FilterQueryString\FilterQueryString;
+use GrammaticalQuery\FilterQueryString\FilterQueryString;
 
 class User extends Model
 {
@@ -81,7 +81,7 @@ User::select('name')->filter()->get();
 
 For the purpose of explaining each method, Imagine we have such data in our `users` table:
 
-| id  |   name   |           email            |  username  |  age | created_at 
+| id  |   name   |           email            |  username  |  age | created_at
 |:---:|:--------:|:--------------------------:|:----------:|:----:|:----------:|
 |  1  | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 |  2  | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
@@ -117,7 +117,7 @@ protected $filters = ['sort'];
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
@@ -132,14 +132,14 @@ Output:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
 | hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
 | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 
-**Bare in mind** that `sort` parameter with invalid values will be ignored from query and has no effect to the result. 
+**Bare in mind** that `sort` parameter with invalid values will be ignored from query and has no effect to the result.
 
 
 ### Comparisons
@@ -180,7 +180,7 @@ protected $filters = [
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
 | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
@@ -191,12 +191,12 @@ Output:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
 
-**Bare in mind** that comparison parameters with invalid values will be ignored from query and has no effect to the result. 
+**Bare in mind** that comparison parameters with invalid values will be ignored from query and has no effect to the result.
 
 ### In
 In clause is the equivalent to `where in` sql statement.
@@ -217,12 +217,12 @@ protected $filters = ['in'];
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
 
-**Bare in mind** that `in` parameter with invalid values will be ignored from query and has no effect to the result. 
+**Bare in mind** that `in` parameter with invalid values will be ignored from query and has no effect to the result.
 
 ### Like
 Like clause is the equivalent to `like '%value%'` sql statement.
@@ -244,7 +244,7 @@ protected $filters = ['like'];
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 
@@ -255,12 +255,12 @@ Output:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
 
-**Bare in mind** that `like` parameter with invalid values will be ignored from query and has no effect to the result. 
+**Bare in mind** that `like` parameter with invalid values will be ignored from query and has no effect to the result.
 
 ### Where Clause (default filter)
 Generally when your query string parameters are not one of previous available methods, It'll get filtered by the default filter which is the `where` sql statement. It's the proper filter when you need to directly filter one of your table's columns.
@@ -271,10 +271,10 @@ Conventions:
 ?field=value
 ?field1=value&field2=value
 ?field1[0]=value1&field1[1]=value2
-?field1[0]=value1&field1[1]=value2&field2[0]=value1&field2[1]=value2 
+?field1[0]=value1&field1[1]=value2&field2[0]=value1&field2[1]=value2
 ```
 
-Assuming we want to filter `name`, `username` and `age` database columns, In User.php 
+Assuming we want to filter `name`, `username` and `age` database columns, In User.php
 ```php
 protected $filters = ['name', 'username', 'age'];
 ```
@@ -284,7 +284,7 @@ protected $filters = ['name', 'username', 'age'];
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 
@@ -295,7 +295,7 @@ Output:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
 
@@ -306,7 +306,7 @@ Output:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
@@ -317,11 +317,11 @@ Output:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 
-**Bare in mind** that `default` filter parameter with invalid values will be ignored from query and has no effect to the result. 
+**Bare in mind** that `default` filter parameter with invalid values will be ignored from query and has no effect to the result.
 
 ### Custom Filters
 By custom filters you can define your own methods as filters. This helps with the Open/Closed of SOLID principles, Hence each time a new filter is needed, you don't have to edit previous filters and you can just write a separate method for it.
@@ -342,7 +342,7 @@ To test our newly added filter:
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
 | hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
@@ -357,7 +357,7 @@ In User.php
 protected $filters = ['in'];
 
 public function in($query, $value) {
-    
+
     $exploded = explode(',', $value);
 
     if(count($exploded) != 4) {
@@ -385,7 +385,7 @@ public function by($query, $value) {
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
 
@@ -410,7 +410,7 @@ User::filter('in')->get();
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
@@ -428,7 +428,7 @@ User::filter('like', 'name')->get();
 
 Output:
 
-|   name   |           email            |  username  |  age | created_at 
+|   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
 | hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
