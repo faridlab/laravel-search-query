@@ -1,6 +1,6 @@
 {
-  "name": "GrammaticalQuery/laravel-filter-querystring",
-  "description": "Filter your queries based on url query string parameters like a breeze.",
+  "name": "GrammaticalQuery",
+  "description": "Grammatical Query - Laravel package for filtering queries based on url query string parameters",
   "keywords": [
     "query",
     "query-string",
@@ -9,14 +9,14 @@
     "filter-querystring",
     "filter-query-string"
   ],
-  "homepage": "https://github.com/GrammaticalQuery/laravel-filter-querystring",
+  "homepage": "https://github.com/faridlab/laravel-grammatical-query",
   "license": "MIT",
   "type": "library",
   "authors": [
     {
-      "name": "Mehrad Sadeghi",
-      "email": "mehrad177@gmail.com",
-      "role": "Developer"
+      "name": "Farid Hidayat",
+      "email": "e.faridhidayat@gmail.com",
+      "role": "Senior Software Engineer"
     }
   ],
   "require": {
