@@ -11,7 +11,7 @@ TODO:
 * [X] fieldname[orwhere]: `string|array ― optional`
 <!-- ComparisonClauses -->
 * [X] fieldname[eq]: `string|integer ― optional`
-* [ ] fieldname[gt]: `string|integer ― optional`
+* [X] fieldname[gt]: `string|integer ― optional`
 * [ ] fieldname[gtEq]: `string|integer ― optional`
 * [ ] fieldname[lt]: `string|integer ― optional`
 * [ ] fieldname[ltEq]: `string|integer ― optional`

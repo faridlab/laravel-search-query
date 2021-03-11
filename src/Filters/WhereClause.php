@@ -3,13 +3,15 @@
 namespace GrammaticalQuery\FilterQueryString\Filters;
 
 use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
-    EqualClause
+    EqualClause,
+    GreaterThan
 };
 
 use Illuminate\Database\Eloquent\Builder;
 
 class WhereClause extends BaseClause {
     use EqualClause;
+    use GreaterThan;
 
     protected $availableFilters = [
         'default' => 'where',

@@ -2,7 +2,13 @@
 
 namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
 
-class GreaterThan extends BaseComparison
+trait GreaterThan
 {
-    public $operator = '>';
+    private function greaterThan($query, $filter, $values)
+    {
+        foreach((array)$values as $value) {
+            $query->where($filter, '>', $value);
+        }
+        return $query;
+    }
 }
