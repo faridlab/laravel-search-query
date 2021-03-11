@@ -2,12 +2,12 @@
 
 namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
 
-trait LessThan
+trait LessThanEqualClause
 {
-    private function lessThan($query, $filter, $values)
+    private function lessThanEqual($query, $filter, $values)
     {
         foreach((array)$values as $value) {
-            $query->where($filter, '<', $value);
+            $query->where($filter, '<=', $value);
         }
         return $query;
     }

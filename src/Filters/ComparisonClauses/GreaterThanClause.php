@@ -2,7 +2,7 @@
 
 namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
 
-trait GreaterThan
+trait GreaterThanClause
 {
     private function greaterThan($query, $filter, $values)
     {

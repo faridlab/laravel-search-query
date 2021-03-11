@@ -4,10 +4,10 @@ namespace GrammaticalQuery\FilterQueryString\Filters;
 
 use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
     EqualClause,
-    GreaterThan,
-    GreaterThanEqual,
-    LessThan,
-    LessThanEqual,
+    GreaterThanClause,
+    GreaterThanEqualClause,
+    LessThanClause,
+    LessThanEqualClause,
     NotEqualClause
 };
 
@@ -16,10 +16,10 @@ use Illuminate\Database\Eloquent\Builder;
 class WhereClause extends BaseClause {
     use EqualClause;
     use NotEqualClause;
-    use GreaterThan;
-    use GreaterThanEqual;
-    use LessThan;
-    use LessThanEqual;
+    use GreaterThanClause;
+    use GreaterThanEqualClause;
+    use LessThanClause;
+    use LessThanEqualClause;
 
     protected $availableFilters = [
         'default' => 'where',
