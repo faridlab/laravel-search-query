@@ -6,7 +6,8 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
     EqualClause,
     GreaterThan,
     GreaterThanEqual,
-    LessThan
+    LessThan,
+    LessThanEqual
 };
 
 use Illuminate\Database\Eloquent\Builder;
@@ -16,6 +17,7 @@ class WhereClause extends BaseClause {
     use GreaterThan;
     use GreaterThanEqual;
     use LessThan;
+    use LessThanEqual;
 
     protected $availableFilters = [
         'default' => 'where',
