@@ -11,6 +11,10 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
     NotEqualClause
 };
 
+use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
+    WhereLikeClause
+};
+
 use Illuminate\Database\Eloquent\Builder;
 
 class WhereClause extends BaseClause {
@@ -20,6 +24,8 @@ class WhereClause extends BaseClause {
     use GreaterThanEqualClause;
     use LessThanClause;
     use LessThanEqualClause;
+
+    use WhereLikeClause;
 
     protected $availableFilters = [
         'default' => 'where',

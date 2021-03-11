@@ -17,7 +17,7 @@ TODO:
 * [X] fieldname[ltEq]: `string|integer ― optional`
 * [X] fieldname[notEq]: `string|integer ― optional`
 <!-- LikeClauses -->
-* [ ] fieldname[like]: `string ― optional`
+* [X] fieldname[like]: `string ― optional`
 * [ ] fieldname[contain]: `string ― optional`
 * [ ] fieldname[startwith]: `string ― optional`
 * [ ] fieldname[endwith]: `string ― optional`
