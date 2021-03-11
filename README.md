@@ -80,33 +80,33 @@ User::select('name')->filter()->get();
 - [Where clause](#Where-Clause-Default-Filter)
 
 **Filters**:
-* fields: `array ― optional`
-* search: `string ― optional`
-* page: `integer default(1) ― optional`
-* limit: `integer default(25) ― optional`
-* relationship: `array ― optional`
-* withtrashed: `boolean default(false) ― optional`
-* orderby: `array ― optional`
-* fieldname[where]: `string|array ― optional`
-* fieldname[orwhere]: `string|array ― optional`
-* fieldname[eq]: `string|integer ― optional`
-* fieldname[gt]: `string|integer ― optional`
-* fieldname[gtEq]: `string|integer ― optional`
-* fieldname[lt]: `string|integer ― optional`
-* fieldname[ltEq]: `string|integer ― optional`
-* fieldname[notEq]: `string|integer ― optional`
-* fieldname[like]: `string ― optional`
-* fieldname[notlike]: `string ― optional`
-* fieldname[contain]: `string ― optional`
-* fieldname[notcontain]: `string ― optional`
-* fieldname[startwith]: `string ― optional`
-* fieldname[endwith]: `string ― optional`
-* fieldname[in]: `array ― optional`
-* fieldname[notin]: `array ― optional`
-* fieldname[between]: `array ― optional`
-* fieldname[notbetween]: `array ― optional`
-* fieldname[isnull]: `string ― optional`
-* fieldname[isnotnull]: `string ― optional`
+* [fields](#fields): `array ― optional`
+* [search](#search): `string ― optional`
+* [page](#page): `integer default(1) ― optional`
+* [limit](#limit): `integer default(25) ― optional`
+* [relationship](#relationship): `array ― optional`
+* [withtrashed](#withtrashed): `boolean default(false) ― optional`
+* [orderby](#orderby): `array ― optional`
+* [fieldname[where]](#where): `string|array ― optional`
+* [fieldname[orwhere]](#or-where): `string|array ― optional`
+* [fieldname[eq]](#equal): `string|integer ― optional`
+* [fieldname[notEq]](#not-equal): `string|integer ― optional`
+* [fieldname[gt]](#greater-than): `string|integer ― optional`
+* [fieldname[gtEq]](#greater-than-equal): `string|integer ― optional`
+* [fieldname[lt]](#less-than): `string|integer ― optional`
+* [fieldname[ltEq]](#less-than-equal): `string|integer ― optional`
+* [fieldname[like]](#like): `string ― optional`
+* [fieldname[notlike]](#not-like): `string ― optional`
+* [fieldname[contain]](#contain): `string ― optional`
+* [fieldname[notcontain]](#not-contain): `string ― optional`
+* [fieldname[startwith]](#start-with): `string ― optional`
+* [fieldname[endwith]](#end-with): `string ― optional`
+* [fieldname[in]](#in): `array ― optional`
+* [fieldname[notin]](#not-in): `array ― optional`
+* [fieldname[between]](#between): `array ― optional`
+* [fieldname[notbetween]](#not-between): `array ― optional`
+* [fieldname[isnull]](#is-null): `string ― optional`
+* [fieldname[isnotnull]](#is-not-null): `string ― optional`
 
 For the purpose of explaining each method, Imagine we have such data in our `users` table:
 
@@ -116,6 +116,7 @@ For the purpose of explaining each method, Imagine we have such data in our `use
 |  2  | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
 |  3  | hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
 |  4  | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+|  5  | farid    | e.faridhidayat@example.com | faridlab   |  19  | 2021-03-12 |
 
 And assume our query is something like this:
 
@@ -123,6 +124,33 @@ And assume our query is something like this:
 User::filter()->get();
 ```
 
+### Fields
+### Search
+### Page
+### Limit
+### Relationship
+### Withtrashed
+### Orderby
+### Where
+### Or where
+### Equal
+### Not Equal
+### Greater Than
+### Greater Than Equal
+### Less Than
+### Less Than Equal
+### Like
+### Not Like
+### Contain
+### Not Contain
+### Start With
+### End With
+### In
+### Not In
+### Between
+### Not Between
+### Is Null
+### Is Not Null
 ### Sort
 Sort is the equivalent to `order by` sql statement which can be used flexible in `FilterQueryString`:
 
