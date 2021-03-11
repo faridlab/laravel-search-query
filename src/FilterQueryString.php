@@ -5,9 +5,10 @@ namespace GrammaticalQuery\FilterQueryString;
 use Illuminate\Pipeline\Pipeline;
 use GrammaticalQuery\FilterQueryString\Filters\{
     OrderbyClause,
-    WhereClause,
     SelectClause,
     LimitClause,
+    SearchClause,
+    WhereClause,
     WhereInClause,
     WhereLikeClause
 };
@@ -20,6 +21,7 @@ trait FilterQueryString {
 
     private $availableFilters = [
         'default' => WhereClause::class,
+        'search' => SearchClause::class,
         'fields' => SelectClause::class,
         'limit' => LimitClause::class,
         'page' => LimitClause::class,

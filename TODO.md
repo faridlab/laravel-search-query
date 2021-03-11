@@ -1,6 +1,6 @@
 TODO:
 * [X] fields: `array ― optional`
-* [ ] search: `string ― optional`
+* [X] search: `string ― optional`
 * [X] page: `integer default(1) ― optional`
 * [X] limit: `integer default(25) ― optional`
 * [ ] relationship: `array ― optional`
