@@ -18,10 +18,10 @@ TODO:
 * [X] fieldname[notEq]: `string|integer ― optional`
 <!-- LikeClauses -->
 * [X] fieldname[like]: `string ― optional`
+* [X] fieldname[notlike]: `string ― optional`
 * [ ] fieldname[contain]: `string ― optional`
 * [ ] fieldname[startwith]: `string ― optional`
 * [ ] fieldname[endwith]: `string ― optional`
-* [ ] fieldname[notlike]: `string ― optional`
 <!-- BetweenClauses -->
 * [ ] fieldname[in]: `array ― optional`
 * [ ] fieldname[notin]: `array ― optional`

@@ -12,7 +12,8 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
 };
 
 use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
-    WhereLikeClause
+    WhereLikeClause,
+    WhereNotLikeClause
 };
 
 use Illuminate\Database\Eloquent\Builder;
@@ -26,6 +27,7 @@ class WhereClause extends BaseClause {
     use LessThanEqualClause;
 
     use WhereLikeClause;
+    use WhereNotLikeClause;
 
     protected $availableFilters = [
         'default' => 'where',
