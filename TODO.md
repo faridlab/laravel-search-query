@@ -13,7 +13,7 @@ TODO:
 * [X] fieldname[eq]: `string|integer ― optional`
 * [X] fieldname[gt]: `string|integer ― optional`
 * [X] fieldname[gtEq]: `string|integer ― optional`
-* [ ] fieldname[lt]: `string|integer ― optional`
+* [X] fieldname[lt]: `string|integer ― optional`
 * [ ] fieldname[ltEq]: `string|integer ― optional`
 * [ ] fieldname[notEq]: `string|integer ― optional`
 <!-- LikeClauses -->

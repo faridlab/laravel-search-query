@@ -2,7 +2,13 @@
 
 namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
 
-class LessThan extends BaseComparison
+trait LessThan
 {
-    public $operator = '<';
+    private function lessThan($query, $filter, $values)
+    {
+        foreach((array)$values as $value) {
+            $query->where($filter, '<', $value);
+        }
+        return $query;
+    }
 }
