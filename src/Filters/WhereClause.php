@@ -14,7 +14,10 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
 use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
     WhereLikeClause,
     WhereNotLikeClause,
-    WhereContainClause
+    WhereContainClause,
+    WhereNotContainClause,
+    WhereStartWithClause,
+    WhereEndWithClause,
 };
 
 use Illuminate\Database\Eloquent\Builder;
@@ -30,6 +33,9 @@ class WhereClause extends BaseClause {
     use WhereLikeClause;
     use WhereNotLikeClause;
     use WhereContainClause;
+    use WhereNotContainClause;
+    use WhereStartWithClause;
+    use WhereEndWithClause;
 
     protected $availableFilters = [
         'default' => 'where',
@@ -43,6 +49,7 @@ class WhereClause extends BaseClause {
         'notEq' => 'notEqual',
         'like' => 'like',
         'contain' => 'contain',
+        'notcontain' => 'notContain',
         'startwith' => 'startwith',
         'endwith' => 'endwith',
         'notlike' => 'notLike',

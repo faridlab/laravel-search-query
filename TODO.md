@@ -19,9 +19,10 @@ TODO:
 <!-- LikeClauses -->
 * [X] fieldname[like]: `string ― optional`
 * [X] fieldname[notlike]: `string ― optional`
-* [ ] fieldname[contain]: `string ― optional`
-* [ ] fieldname[startwith]: `string ― optional`
-* [ ] fieldname[endwith]: `string ― optional`
+* [X] fieldname[contain]: `string ― optional`
+* [X] fieldname[notcontain]: `string ― optional`
+* [X] fieldname[startwith]: `string ― optional`
+* [X] fieldname[endwith]: `string ― optional`
 <!-- BetweenClauses -->
 * [ ] fieldname[in]: `array ― optional`
 * [ ] fieldname[notin]: `array ― optional`
