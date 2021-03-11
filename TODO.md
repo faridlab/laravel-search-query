@@ -5,7 +5,7 @@ TODO:
 * [X] limit: `integer default(25) ― optional`
 * [X] relationship: `array ― optional`
 * [X] withtrashed: `boolean default(false) ― optional`
-* [ ] orderby: `array ― optional`
+* [X] orderby: `array ― optional`
 * [ ] fieldname[where]: `array ― optional`
 * [ ] fieldname[orwhere]: `array ― optional`
 * [ ] fieldname[eq]: `string|integer ― optional`

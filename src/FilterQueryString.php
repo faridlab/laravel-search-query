@@ -10,6 +10,7 @@ use GrammaticalQuery\FilterQueryString\Filters\{
     SearchClause,
     RelationshipClause,
     WithTrashedClause,
+    OrderClause,
     WhereClause,
     WhereInClause,
     WhereLikeClause
@@ -29,6 +30,7 @@ trait FilterQueryString {
         'page' => LimitClause::class,
         'relationship' => RelationshipClause::class,
         'withtrashed' => WithTrashedClause::class,
+        'orderby' => OrderClause::class,
 
         'sort' => OrderbyClause::class,
         'greater' => GreaterThan::class,
