@@ -4,7 +4,7 @@ TODO:
 * [X] page: `integer default(1) ― optional`
 * [X] limit: `integer default(25) ― optional`
 * [X] relationship: `array ― optional`
-* [ ] withtrashed: `boolean default(false) ― optional`
+* [X] withtrashed: `boolean default(false) ― optional`
 * [ ] orderby: `array ― optional`
 * [ ] fieldname[where]: `array ― optional`
 * [ ] fieldname[orwhere]: `array ― optional`
