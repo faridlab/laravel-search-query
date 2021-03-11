@@ -29,5 +29,5 @@ TODO:
 * [X] fieldname[between]: `array ― optional`
 * [X] fieldname[notbetween]: `array ― optional`
 <!-- NullClauses -->
-* [ ] fieldname[isnull]: `string ― optional`
-* [ ] fieldname[isnotnull]: `string ― optional`
+* [X] fieldname[isnull]: `string ― optional`
+* [X] fieldname[isnotnull]: `string ― optional`

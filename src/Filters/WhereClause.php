@@ -27,6 +27,11 @@ use GrammaticalQuery\FilterQueryString\Filters\BetweenClauses\{
     WhereNotInClause
 };
 
+use GrammaticalQuery\FilterQueryString\Filters\NullClauses\{
+    WhereNullClause,
+    WhereNotNullClause
+};
+
 use Illuminate\Database\Eloquent\Builder;
 
 class WhereClause extends BaseClause {
@@ -48,6 +53,9 @@ class WhereClause extends BaseClause {
     use WhereNotBetweenClause;
     use WhereInClause;
     use WhereNotInClause;
+
+    use WhereNullClause;
+    use WhereNotNullClause;
 
     protected $availableFilters = [
         'default' => 'where',
