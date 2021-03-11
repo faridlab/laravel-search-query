@@ -8,6 +8,7 @@ use GrammaticalQuery\FilterQueryString\Filters\{
     SelectClause,
     LimitClause,
     SearchClause,
+    RelationshipClause,
     WhereClause,
     WhereInClause,
     WhereLikeClause
@@ -25,6 +26,8 @@ trait FilterQueryString {
         'fields' => SelectClause::class,
         'limit' => LimitClause::class,
         'page' => LimitClause::class,
+        'relationship' => RelationshipClause::class,
+
         'sort' => OrderbyClause::class,
         'greater' => GreaterThan::class,
         'greater_or_equal' => GreaterOrEqualTo::class,

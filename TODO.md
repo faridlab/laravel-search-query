@@ -3,7 +3,7 @@ TODO:
 * [X] search: `string ― optional`
 * [X] page: `integer default(1) ― optional`
 * [X] limit: `integer default(25) ― optional`
-* [ ] relationship: `array ― optional`
+* [X] relationship: `array ― optional`
 * [ ] withtrashed: `boolean default(false) ― optional`
 * [ ] orderby: `array ― optional`
 * [ ] fieldname[where]: `array ― optional`
