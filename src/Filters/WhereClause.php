@@ -13,7 +13,8 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
 
 use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
     WhereLikeClause,
-    WhereNotLikeClause
+    WhereNotLikeClause,
+    WhereContainClause
 };
 
 use Illuminate\Database\Eloquent\Builder;
@@ -28,6 +29,7 @@ class WhereClause extends BaseClause {
 
     use WhereLikeClause;
     use WhereNotLikeClause;
+    use WhereContainClause;
 
     protected $availableFilters = [
         'default' => 'where',
