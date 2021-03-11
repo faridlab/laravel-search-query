@@ -20,6 +20,13 @@ use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
     WhereEndWithClause,
 };
 
+use GrammaticalQuery\FilterQueryString\Filters\BetweenClauses\{
+    WhereBetweenClause,
+    WhereNotBetweenClause,
+    WhereInClause,
+    WhereNotInClause
+};
+
 use Illuminate\Database\Eloquent\Builder;
 
 class WhereClause extends BaseClause {
@@ -36,6 +43,11 @@ class WhereClause extends BaseClause {
     use WhereNotContainClause;
     use WhereStartWithClause;
     use WhereEndWithClause;
+
+    use WhereBetweenClause;
+    use WhereNotBetweenClause;
+    use WhereInClause;
+    use WhereNotInClause;
 
     protected $availableFilters = [
         'default' => 'where',

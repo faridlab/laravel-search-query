@@ -24,10 +24,10 @@ TODO:
 * [X] fieldname[startwith]: `string ― optional`
 * [X] fieldname[endwith]: `string ― optional`
 <!-- BetweenClauses -->
-* [ ] fieldname[in]: `array ― optional`
-* [ ] fieldname[notin]: `array ― optional`
-* [ ] fieldname[between]: `array ― optional`
-* [ ] fieldname[notbetween]: `array ― optional`
+* [X] fieldname[in]: `array ― optional`
+* [X] fieldname[notin]: `array ― optional`
+* [X] fieldname[between]: `array ― optional`
+* [X] fieldname[notbetween]: `array ― optional`
 <!-- NullClauses -->
 * [ ] fieldname[isnull]: `string ― optional`
 * [ ] fieldname[isnotnull]: `string ― optional`
