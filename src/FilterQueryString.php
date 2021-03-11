@@ -4,19 +4,14 @@ namespace GrammaticalQuery\FilterQueryString;
 
 use Illuminate\Pipeline\Pipeline;
 use GrammaticalQuery\FilterQueryString\Filters\{
-    OrderbyClause,
+    WhereClause,
     SelectClause,
     LimitClause,
     SearchClause,
     RelationshipClause,
     WithTrashedClause,
     OrderClause,
-    WhereClause,
-    WhereInClause,
-    WhereLikeClause
 };
-use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{GreaterOrEqualTo, GreaterThan, LessOrEqualTo, LessThan};
-use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\Between\{Between, NotBetween};
 
 trait FilterQueryString {
 
@@ -31,16 +26,6 @@ trait FilterQueryString {
         'relationship' => RelationshipClause::class,
         'withtrashed' => WithTrashedClause::class,
         'orderby' => OrderClause::class,
-
-        'sort' => OrderbyClause::class,
-        'greater' => GreaterThan::class,
-        'greater_or_equal' => GreaterOrEqualTo::class,
-        'less' => LessThan::class,
-        'less_or_equal' => LessOrEqualTo::class,
-        'between' => Between::class,
-        'not_between' => NotBetween::class,
-        'in' => WhereInClause::class,
-        'like' => WhereLikeClause::class,
     ];
 
     public function scopeFilter($query, ...$filters)
