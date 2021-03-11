@@ -7,13 +7,15 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
     GreaterThan,
     GreaterThanEqual,
     LessThan,
-    LessThanEqual
+    LessThanEqual,
+    NotEqualClause
 };
 
 use Illuminate\Database\Eloquent\Builder;
 
 class WhereClause extends BaseClause {
     use EqualClause;
+    use NotEqualClause;
     use GreaterThan;
     use GreaterThanEqual;
     use LessThan;
