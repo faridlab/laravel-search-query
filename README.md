@@ -153,8 +153,25 @@ User::filter()->get();
 
 ### Fields
 ```
-fields: array ― optional
+fields: array|string ― optional
 ```
+
+Convention:
+```
+> GET /api/v1/users?fields={fieldname}
+> GET /api/v1/users?fields[]={fieldname1}
+> GET /api/v1/users?fields[]={fieldname2}
+
+> GET /api/v1/users?fields=name
+> GET /api/v1/users?fields[]=name&fields[]=email
+```
+
+In Users.php
+```php
+protected $filters = ['fields'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?fields[]=name&fields[]=email`
 
 ### Search
 ```
