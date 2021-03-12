@@ -139,11 +139,11 @@ For the purpose of explaining each method, Imagine we have such data in our `use
 
 | id  |   name   |           email            |  username  |  age | created_at
 |:---:|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-|  1  | mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-|  2  | reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
-|  3  | hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
-|  4  | dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
-|  5  | farid    | e.faridhidayat@example.com | faridlab   |  19  | 2021-03-12 |
+|  1  | mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+|  2  | reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
+|  3  | hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
+|  4  | dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
+|  5  | farid    | farid<i></i>@startapp.id   | faridlab   |  21  | 2021-03-12 |
 
 And assume our query is something like this:
 
@@ -158,6 +158,55 @@ User::filter()->get();
 ### Relationship
 ### Withtrashed
 ### Orderby
+Orderby is the equivalent to `order by` sql statement which can be used flexible in `FilterQueryString`:
+
+Conventions:
+```bash
+> GET /api/v1/users?orderby={fieldname}
+> GET /api/v1/users?orderby[{fieldname}]={asc|desc}&orderby[{fieldname}]={asc|desc}
+
+> GET /api/v1/users?orderby=name
+> GET /api/v1/users?orderby[id]=desc&orderby[name]=asc
+> GET /api/v1/users?orderby[id]=desc&orderby[name]=asc&orderby[email]=asc
+```
+
+In Users.php
+```php
+protected $filters = ['orderby'];
+```
+**Single `sort`**:
+
+`https://startapp.id/api/v1/users?orderby=created_at`
+
+Output:
+
+|   name   |           email            |  username  |  age | created_at
+|:--------:|:--------------------------:|:----------:|:----:|:----------:|
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
+| hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
+| farid    | farid<i></i>@startapp.id   | faridlab   |  21  | 2021-03-12 |
+
+- **Note** that when you're not passing parameter as array instead of string, it will be used as field name and order by 'asc' by default.
+
+**Multiple `sort`s**:
+
+`https://startapp.id/api/v1/users?orderby[name]=asc&orderby[email]=desc`
+
+Output:
+
+|   name   |           email            |  username  |  age | created_at
+|:--------:|:--------------------------:|:----------:|:----:|:----------:|
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
+| farid    | farid<i></i>@startapp.id   | faridlab   |  21  | 2021-03-12 |
+| hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
+
+**Bare in mind** that `sort` parameter with invalid values will be ignored from query and has no effect to the result.
+
+
 ### Where
 ### Or where
 ### Equal
@@ -179,53 +228,6 @@ User::filter()->get();
 ### Is Null
 ### Is Not Null
 ### Sort
-Sort is the equivalent to `order by` sql statement which can be used flexible in `FilterQueryString`:
-
-Conventions:
-
-```
-?sort=field
-?sort=field,sort_type
-?sort[0]=field1&sort[1]=field2
-?sort[0]=field1&sort[1]=field2,sort_type
-?sort[0]=field1,sort_type&sort[1]=field2,sort_type
-```
-
-In User.php
-```php
-protected $filters = ['sort'];
-```
-**Single `sort`**:
-
-`https://example.com?sort=created_at`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
-| hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
-
-- **Note** that when you're not defining `sort_type`, It'll be `asc` by default.
-
-**Multiple `sort`s**:
-
-`https://example.com?sort[0]=age,desc&sort[1]=created_at,desc`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
-| hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
-| reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-
-**Bare in mind** that `sort` parameter with invalid values will be ignored from query and has no effect to the result.
-
-
 ### Comparisons
 Comparisons are consist of 6 filters:
 - greater
@@ -246,7 +248,7 @@ Conventions:
 ?not_between=field,value1,value2
 ```
 
-In User.php
+In Users.php
 ```php
 protected $filters = [
     'greater',
@@ -260,25 +262,25 @@ protected $filters = [
 
 **Example of `greater`**:
 
-`https://example.com?greater=age,20`
+`https://startapp.id?greater=age,20`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+| hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
 
 **Example of `not_between`**:
 
-`https://example.com?not_between=age,21,30`
+`https://startapp.id?not_between=age,21,30`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
 
 **Bare in mind** that comparison parameters with invalid values will be ignored from query and has no effect to the result.
 
@@ -291,20 +293,20 @@ Convention:
 ?in=field,value1,value2
 ```
 
-In User.php
+In Users.php
 ```php
 protected $filters = ['in'];
 ```
 **Example**:
 
-`https://example.com?in=name,mehrad,reza`
+`https://startapp.id?in=name,mehrad,reza`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
 
 **Bare in mind** that `in` parameter with invalid values will be ignored from query and has no effect to the result.
 
@@ -318,31 +320,31 @@ Conventions:
 ?like[0]=field1,value1&like[1]=field2,value2
 ```
 
-In User.php
+In Users.php
 ```php
 protected $filters = ['like'];
 ```
 **Single `like`**:
 
-`https://example.com?like=name,meh`
+`https://startapp.id?like=name,meh`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
 
 
 **Multiple `like`s**:
 
-`https://example.com?like[0]=name,meh&like[1]=username,dar`
+`https://startapp.id?like[0]=name,meh&like[1]=username,dar`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
 
 **Bare in mind** that `like` parameter with invalid values will be ignored from query and has no effect to the result.
 
@@ -358,52 +360,52 @@ Conventions:
 ?field1[0]=value1&field1[1]=value2&field2[0]=value1&field2[1]=value2
 ```
 
-Assuming we want to filter `name`, `username` and `age` database columns, In User.php
+Assuming we want to filter `name`, `username` and `age` database columns, In Users.php
 ```php
 protected $filters = ['name', 'username', 'age'];
 ```
 **Example**:
 
-`https://example.com?name=mehrad`
+`https://startapp.id?name=mehrad`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
 
 
 **Example**:
 
-`https://example.com?age=22&username=dariush123`
+`https://startapp.id?age=22&username=dariush123`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
 
 
 **Example**:
 
-`https://example.com?name[0]=mehrad&name[1]=dariush`
+`https://startapp.id?name[0]=mehrad&name[1]=dariush`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
 
 **Example**:
 
-`https://example.com?name[0]=mehrad&name[1]=dariush&username[0]=mehrad123&username[1]=reza1234`
+`https://startapp.id?name[0]=mehrad&name[1]=dariush&username[0]=mehrad123&username[1]=reza1234`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
 
 **Bare in mind** that `default` filter parameter with invalid values will be ignored from query and has no effect to the result.
 
@@ -412,7 +414,7 @@ By custom filters you can define your own methods as filters. This helps with th
 
 Let's create a custom filter. Assuming you want to create a filter named `all_except` which retrieves all users except the one that is specified:
 
-In User.php
+In Users.php
 ```php
 protected $filters = ['all_except'];
 
@@ -422,21 +424,21 @@ public function all_except($query, $value) {
 ```
 To test our newly added filter:
 
-`https://example.com?all_except=mehrad`
+`https://startapp.id?all_except=mehrad`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
-| hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
+| hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
 
 **Note** that your custom defined filters have the most priority which means you can even override available filters.
 
 For example lets change `in` filter in a way that only accepts 3 values:
 
-In User.php
+In Users.php
 ```php
 protected $filters = ['in'];
 
@@ -456,7 +458,7 @@ public function in($query, $value) {
 
 **Another** good example for custom filters are when you don't want to expose your database table's column name. For example assume we don't want to expose that we have a column named `username` in `users` table:
 
-In User.php
+In Users.php
 ```php
 protected $filters = ['by'];
 
@@ -465,13 +467,13 @@ public function by($query, $value) {
 }
 ```
 
-`https://example.com?by=dariush123`
+`https://startapp.id?by=dariush123`
 
 Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| dariush  | dariush<i></i>@example.com | dariush123 |  22  | 2020-12-01 |
+| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
 
 #### Minor Tip
 In order to prevent your model to get messy or populated with filter methods, You can create a trait for it and put everything about filters inside the trait.
@@ -496,8 +498,8 @@ Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| reza     | reza<i></i>@example.com    | reza123    |  20  | 2020-10-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
 
 If the `in` argument was not specified, The result of query would be only one record (`mehrad`).
 
@@ -514,5 +516,5 @@ Output:
 
 |   name   |           email            |  username  |  age | created_at
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@example.com  | mehrad123  |  20  | 2020-09-01 |
-| hossein  | hossein<i></i>@example.com | hossein123 |  22  | 2020-11-01 |
+| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
+| hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
