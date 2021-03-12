@@ -152,12 +152,35 @@ User::filter()->get();
 ```
 
 ### Fields
+```
+fields: array ― optional
+```
+
 ### Search
+```
+search: string ― optional
+```
+
 ### Page
+```
+page: integer default(1) ― optional
+```
 ### Limit
+```
+limit: integer default(25) ― optional
+```
 ### Relationship
+```
+relationship: array|string ― optional
+```
 ### Withtrashed
+```
+withtrashed: boolean default(false) ― optional
+```
 ### Orderby
+```
+orderby: array|string ― optional
+```
 Orderby is the equivalent to `order by` sql statement which can be used flexible in `FilterQueryString`:
 
 Conventions:
@@ -208,25 +231,86 @@ Output:
 
 
 ### Where
+```
+fieldname[where]: string|array ― optional
+```
 ### Or where
+```
+fieldname[orwhere]: string|array ― optional
+```
 ### Equal
+```
+fieldname[eq]: string|integer ― optional
+```
 ### Not Equal
+```
+fieldname[notEq]: string|integer ― optional
+```
 ### Greater Than
+```
+fieldname[gt]: string|integer ― optional
+```
 ### Greater Than Equal
+```
+fieldname[gtEq]: string|integer ― optional
+```
 ### Less Than
+```
+fieldname[lt]: string|integer ― optional
+```
 ### Less Than Equal
+```
+fieldname[ltEq]: string|integer ― optional
+```
 ### Like
+```
+fieldname[like]: string ― optional
+```
 ### Not Like
+```
+fieldname[notlike]: string ― optional
+```
 ### Contain
+```
+fieldname[contain]: string ― optional
+```
 ### Not Contain
+```
+fieldname[notcontain]: string ― optional
+```
 ### Start With
+```
+fieldname[startwith]: string ― optional
+```
 ### End With
+```
+fieldname[endwith]: string ― optional
+```
 ### In
+```
+fieldname[in]: array ― optional
+```
 ### Not In
+```
+fieldname[notin]: array ― optional
+```
 ### Between
+```
+fieldname[between]: array ― optional
+```
 ### Not Between
+```
+fieldname[notbetween]: array ― optional
+```
 ### Is Null
+```
+fieldname[isnull]: string ― optional
+```
 ### Is Not Null
+```
+fieldname[isnotnull]: string ― optional
+```
+
 ### Sort
 ### Comparisons
 Comparisons are consist of 6 filters:
