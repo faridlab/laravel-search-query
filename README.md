@@ -204,7 +204,7 @@ Output:
 | mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
 | reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
 
-**Bare in mind** that `sort` parameter with invalid values will be ignored from query and has no effect to the result.
+**Bare in mind** that `orderby` parameter with invalid values will be ignored from query and has no effect to the result.
 
 
 ### Where
