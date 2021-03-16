@@ -328,6 +328,28 @@ Output:
 ```
 fieldname[where]: string|array ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}={searchtext}
+> GET /api/v1/users?{fieldname}[]={searchtext}
+> GET /api/v1/users?{fieldname}[where]={searchtext}
+
+> GET /api/v1/users?username=faridlab
+> GET /api/v1/users?username[]=faridlab
+> GET /api/v1/users?username[where]=faridlab
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username=faridlab`
+
+`https://startapp.id/api/v1/users?username[]=faridlab`
+
+`https://startapp.id/users?username[where]=faridlab`
+
 ### Or where
 ```
 fieldname[orwhere]: string|array ― optional
