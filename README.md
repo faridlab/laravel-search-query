@@ -251,11 +251,26 @@ protected $filters = ['relationship'];
 ```
 **Example**:
 `https://startapp.id/api/v1/users?relationship=role`
+
 `https://startapp.id/api/v1/users?relationship[]=role&relationship[]=permissions`
 ### Withtrashed
 ```
 withtrashed: boolean default(false) ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?withtrashed=true
+
+> GET /api/v1/users?withtrashed=true
+```
+
+In Users.php
+```php
+protected $filters = ['withtrashed'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?withtrashed=true`
+
 ### Orderby
 ```
 orderby: array|string ― optional
