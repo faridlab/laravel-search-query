@@ -217,6 +217,19 @@ protected $filters = ['page'];
 ```
 limit: integer default(25) ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?limit={limit}
+
+> GET /api/v1/users?limit=25
+```
+
+In Users.php
+```php
+protected $filters = ['limit'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?limit=25`
 ### Relationship
 ```
 relationship: array|string ― optional
