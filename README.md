@@ -155,7 +155,6 @@ User::filter()->get();
 ```
 fields: array|string ― optional
 ```
-
 Convention:
 ```
 > GET /api/v1/users?fields={fieldname}
@@ -177,6 +176,24 @@ protected $filters = ['fields'];
 ```
 search: string ― optional
 ```
+
+Convention:
+```
+> GET /api/v1/users?search={fieldname}
+
+> GET /api/v1/users?search=faridlab
+```
+
+In Users.php
+```php
+protected $filters = ['search'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?search=faridlab`
+
+| id  |   name   |           email            |  username  |  age | created_at
+|:---:|:--------:|:--------------------------:|:----------:|:----:|:----------:|
+|  5  | farid    | farid<i></i>@startapp.id   | faridlab   |  21  | 2021-03-12 |
 
 ### Page
 ```
