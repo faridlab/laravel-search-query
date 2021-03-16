@@ -234,6 +234,24 @@ protected $filters = ['limit'];
 ```
 relationship: array|string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?relationship={relation}
+> GET /api/v1/users?relationship[]={relation1}
+> GET /api/v1/users?relationship[]={relation2}
+
+> GET /api/v1/users?relationship=role
+> GET /api/v1/users?relationship[]=role
+> GET /api/v1/users?relationship[]=permissions
+```
+
+In Users.php
+```php
+protected $filters = ['relationship'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?relationship=role`
+`https://startapp.id/api/v1/users?relationship[]=role&relationship[]=permissions`
 ### Withtrashed
 ```
 withtrashed: boolean default(false) ― optional
