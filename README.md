@@ -380,6 +380,21 @@ protected $filters = [];
 ```
 fieldname[eq]: string|integer ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[eq]={searchtext}
+> GET /api/v1/users?{fieldname2}[eq]={searchtext}
+
+> GET /api/v1/users?username[eq]=faridlab&email[eq]=farid@startapp.id
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[eq]=faridlab&email[eq]=farid@startapp.id`
+
 ### Not Equal
 ```
 fieldname[notEq]: string|integer ― optional
