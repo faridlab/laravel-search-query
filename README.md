@@ -199,6 +199,20 @@ protected $filters = ['search'];
 ```
 page: integer default(1) ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?page={page}
+
+> GET /api/v1/users?page=1
+```
+
+In Users.php
+```php
+protected $filters = ['page'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?page=1`
+
 ### Limit
 ```
 limit: integer default(25) ― optional
