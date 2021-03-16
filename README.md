@@ -348,12 +348,34 @@ protected $filters = [];
 
 `https://startapp.id/api/v1/users?username[]=faridlab`
 
-`https://startapp.id/users?username[where]=faridlab`
+`https://startapp.id/api/v1/users?username[where]=faridlab`
 
 ### Or where
 ```
 fieldname[orwhere]: string|array ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[orwhere]={searchtext}
+> GET /api/v1/users?{fieldname}[orwhere][]={searchtext}
+> GET /api/v1/users?{fieldname}[orwhere][]={searchtext}
+
+> GET /api/v1/users?username[where]=faridlab
+> GET /api/v1/users?username[where][]=faridlab
+> GET /api/v1/users?username[where][]=mehrad123
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[where]=faridlab`
+
+`https://startapp.id/api/v1/users?username[where][]=faridlab`
+
+`https://startapp.id/api/v1/users?username[where][]=mehrad123`
+
 ### Equal
 ```
 fieldname[eq]: string|integer ― optional
