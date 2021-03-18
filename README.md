@@ -689,127 +689,21 @@ protected $filters = [];
 ```
 fieldname[isnotnull]: string ― optional
 ```
-
-### Sort
-### Comparisons
-Comparisons are consist of 6 filters:
-- greater
-- greater_or_equal
-- less
-- less_or_equal
-- between
-- not_between
-
-Conventions:
-
-```
-?greater=field,value
-?greater_or_equal=field,value
-?less=field,value
-?less_or_equal=field,value
-?between=field,value1,value2
-?not_between=field,value1,value2
-```
-
-In Users.php
-```php
-protected $filters = [
-    'greater',
-    'greater_or_equal',
-    'less',
-    'less_or_equal',
-    'between',
-    'not_between'
-];
-```
-
-**Example of `greater`**:
-
-`https://startapp.id?greater=age,20`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
-| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
-
-**Example of `not_between`**:
-
-`https://startapp.id?not_between=age,21,30`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
-| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
-
-**Bare in mind** that comparison parameters with invalid values will be ignored from query and has no effect to the result.
-
-### In
-In clause is the equivalent to `where in` sql statement.
-
 Convention:
-
 ```
-?in=field,value1,value2
+> GET /api/v1/users?{fieldname}[isnotnull]={null|''}
+
+> GET /api/v1/users?deleted_at[isnotnull]=null
 ```
 
 In Users.php
 ```php
-protected $filters = ['in'];
+protected $filters = [];
 ```
 **Example**:
+`https://startapp.id/api/v1/users?deleted_at[isnotnull]=null`
 
-`https://startapp.id?in=name,mehrad,reza`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
-| reza     | reza<i></i>@startapp.id    | reza123    |  20  | 2020-10-01 |
-
-**Bare in mind** that `in` parameter with invalid values will be ignored from query and has no effect to the result.
-
-### Like
-Like clause is the equivalent to `like '%value%'` sql statement.
-
-Conventions:
-
-```
-?like=field,value
-?like[0]=field1,value1&like[1]=field2,value2
-```
-
-In Users.php
-```php
-protected $filters = ['like'];
-```
-**Single `like`**:
-
-`https://startapp.id?like=name,meh`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
-
-
-**Multiple `like`s**:
-
-`https://startapp.id?like[0]=name,meh&like[1]=username,dar`
-
-Output:
-
-|   name   |           email            |  username  |  age | created_at
-|:--------:|:--------------------------:|:----------:|:----:|:----------:|
-| mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
-| dariush  | dariush<i></i>@startapp.id | dariush123 |  22  | 2020-12-01 |
-
-**Bare in mind** that `like` parameter with invalid values will be ignored from query and has no effect to the result.
+`https://startapp.id/api/v1/users?deleted_at[isnotnull]`
 
 ### Where Clause (default filter)
 Generally when your query string parameters are not one of previous available methods, It'll get filtered by the default filter which is the `where` sql statement. It's the proper filter when you need to directly filter one of your table's columns.
