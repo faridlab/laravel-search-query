@@ -525,6 +525,20 @@ protected $filters = [];
 ```
 fieldname[contain]: string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[contain]={searchtext}
+
+> GET /api/v1/users?username[contain]=farid
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[contain]=farid`
+
 ### Not Contain
 ```
 fieldname[notcontain]: string ― optional
