@@ -399,6 +399,21 @@ protected $filters = [];
 ```
 fieldname[notEq]: string|integer ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[notEq]={searchtext}
+> GET /api/v1/users?{fieldname2}[notEq]={searchtext}
+
+> GET /api/v1/users?username[notEq]=faridlab&email[notEq]=farid@startapp.id
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[notEq]=faridlab&email[notEq]=farid@startapp.id`
+
 ### Greater Than
 ```
 fieldname[gt]: string|integer ― optional
