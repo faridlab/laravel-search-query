@@ -453,6 +453,20 @@ protected $filters = [];
 ```
 fieldname[lt]: string|integer ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[lt]={searchtext}
+
+> GET /api/v1/users?id[lt]=10
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?id[lt]=10`
+
 ### Less Than Equal
 ```
 fieldname[ltEq]: string|integer ― optional
