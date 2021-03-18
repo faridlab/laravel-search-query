@@ -651,6 +651,20 @@ protected $filters = [];
 ```
 fieldname[notbetween]: array ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[notbetween][]={searchtext}&{fieldname}[notbetween][]={searchtext2}
+
+> GET /api/v1/users?id[notbetween][]=1&id[notbetween][]=10
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?id[notbetween][]=1&id[notbetween][]=10`
+
 ### Is Null
 ```
 fieldname[isnull]: string ― optional
