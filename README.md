@@ -507,6 +507,20 @@ protected $filters = [];
 ```
 fieldname[notlike]: string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[notlike]={searchtext}
+
+> GET /api/v1/users?username[notlike]=faridlab
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[notlike]=faridlab`
+
 ### Contain
 ```
 fieldname[contain]: string ― optional
