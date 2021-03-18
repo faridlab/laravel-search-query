@@ -669,6 +669,22 @@ protected $filters = [];
 ```
 fieldname[isnull]: string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[isnull]={null|''}
+
+> GET /api/v1/users?deleted_at[isnull]=null
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?deleted_at[isnull]=null`
+
+`https://startapp.id/api/v1/users?deleted_at[isnull]`
+
 ### Is Not Null
 ```
 fieldname[isnotnull]: string ― optional
