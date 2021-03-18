@@ -471,6 +471,20 @@ protected $filters = [];
 ```
 fieldname[ltEq]: string|integer ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[ltEq]={searchtext}
+
+> GET /api/v1/users?id[ltEq]=10
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?id[ltEq]=10`
+
 ### Like
 ```
 fieldname[like]: string ― optional
