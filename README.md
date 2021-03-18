@@ -597,6 +597,21 @@ protected $filters = [];
 ```
 fieldname[in]: array ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[in][]={searchtext}&{fieldname}[in][]={searchtext2}
+
+> GET /api/v1/users?username[in][]=faridlab&username[in][]=farid
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[in][]=faridlab&username[in][]=farid`
+
+
 ### Not In
 ```
 fieldname[notin]: array ― optional
