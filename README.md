@@ -543,6 +543,20 @@ protected $filters = [];
 ```
 fieldname[notcontain]: string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[notcontain]={searchtext}
+
+> GET /api/v1/users?username[notcontain]=farid
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[notcontain]=farid`
+
 ### Start With
 ```
 fieldname[startwith]: string ― optional
