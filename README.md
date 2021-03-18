@@ -561,6 +561,20 @@ protected $filters = [];
 ```
 fieldname[startwith]: string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[startwith]={searchtext}
+
+> GET /api/v1/users?username[startwith]=farid
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[startwith]=farid`
+
 ### End With
 ```
 fieldname[endwith]: string ― optional
