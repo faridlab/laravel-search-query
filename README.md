@@ -135,6 +135,30 @@ User::select('name')->filter()->get();
 * [fieldname[isnull]](#is-null): `string ― optional`
 * [fieldname[isnotnull]](#is-not-null): `string ― optional`
 
+
+| Query | Parameter | Note | SQL |
+|---|---|---|---|
+| AND | (where) | WHERE and | ...WHERE 1 = 1 *AND fieldname = {search}*... |
+| OR | (orwhere) | WHERE or | ...WHERE 1 = 1 *OR fieldname = {search}*... |
+| = | (eq) | EQual | ...WHERE *fieldname = {search}*... |
+| > | (gt) | Greater Than | ...WHERE *fieldname > {search}*... |
+| >= | (gtEq) | Greater Than EQual | ...WHERE *fieldname >= {search}*... |
+| < | (lt) | Less Than | ...WHERE *fieldname < {search}*... |
+| <= | (ltEq) | Less Than EQual | ...WHERE *fieldname <= {search}*... |
+| != | (notEq) | NOT EQual | ...WHERE *fieldname != {search}*... |
+| LIKE | (like) | LIKE | ...WHERE *fieldname LIKE {search}*... |
+| LIKE %...% | (contain) | LIKE %...% | ...WHERE *fieldname LIKE %{search}%*... |
+| LIKE startwith | (startwith) | LIKE startwith% | ...WHERE *fieldname LIKE {search}%*... |
+| LIKE %endwith | (endwith) | LIKE %endwith | ...WHERE *fieldname LIKE %{search}*... |
+| NOT LIKE | (notlike) | NOT LIKE | ...WHERE *fieldname NOT LIKE {search}*... |
+| IN (...) | (in) | IN | ...WHERE *fieldname IN({search})*... |
+| NOT IN (...) | (notin) | NOT IN | ...WHERE *fieldname NOT IN({search})*... |
+| BETWEEN | (between) | BETWEEN | ...WHERE *fieldname BETWEEN {search} AND {search}*... |
+| NOT BETWEEN | (notbetween) | NOT BETWEEN | ...WHERE *fieldname NOT BETWEEN {search} AND {search}*... |
+| IS NULL | (isnull) | IS NULL | ...WHERE *fieldname IS NULL*... |
+| IS NOT NULL | (isnotnull) | IS NOT NULL | ...WHERE *fieldname IS NOT NULL*... |
+| ORDER BY | (orderby) | ORDER BY | ...ORDER BY *fieldname {orderby}*... |
+
 For the purpose of explaining each method, Imagine we have such data in our `users` table:
 
 | id  |   name   |           email            |  username  |  age | created_at
