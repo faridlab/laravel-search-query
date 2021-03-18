@@ -579,6 +579,20 @@ protected $filters = [];
 ```
 fieldname[endwith]: string ― optional
 ```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[endwith]={searchtext}
+
+> GET /api/v1/users?username[endwith]=lab
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[endwith]=lab`
+
 ### In
 ```
 fieldname[in]: array ― optional
