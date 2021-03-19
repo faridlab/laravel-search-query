@@ -9,6 +9,7 @@ class SearchClause extends BaseClause {
 
     protected function apply($query): Builder
     {
+        if(is_array($this->values)) return $query;
         $model = $query->getModel();
         $columns = $model->getConnection()->getSchemaBuilder()->getColumnListing($model->getTable());
         $value = $this->values;
