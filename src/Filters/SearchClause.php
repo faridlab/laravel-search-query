@@ -12,14 +12,13 @@ class SearchClause extends BaseClause {
         if(is_array($this->values)) return $query;
         $model = $query->getModel();
         $columns = $model->getConnection()->getSchemaBuilder()->getColumnListing($model->getTable());
+        $table_name = $model->getTable();
         $value = $this->values;
-        $query->where(function($query) use($columns, $value) {
+        $query->where(function($query) use($table_name, $columns, $value) {
             foreach ($columns as $field) {
-                if(in_array($field, ['created_at', 'updated_at', 'deleted_at'])) continue;
-                $query->orWhere($field, 'like', "%$value%");
+                $query->orWhere("{$table_name}.{$field}", 'like', "%$value%");
             }
         });
-
         return $query;
     }
 
