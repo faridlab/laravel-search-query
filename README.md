@@ -42,7 +42,7 @@
         - [Is Not Null](#is-not-null)
     - [Custom Filters](#Custom-Filters)
     - [Conditional Filters](#Conditional-Filters)
-    - [Manually Passing Filter Array (Livewire)](#Manually-Passing-Filter-Array-(Livewire))
+    - [Manually Passing Filter Array (Livewire)](#Manually-Passing-Filter-Array-Livewire)
 
 ## Describing the Problem
 
