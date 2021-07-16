@@ -899,3 +899,37 @@ Output:
 |:--------:|:--------------------------:|:----------:|:----:|:----------:|
 | mehrad   | mehrad<i></i>@startapp.id  | mehrad123  |  20  | 2020-09-01 |
 | hossein  | hossein<i></i>@startapp.id | hossein123 |  22  | 2020-11-01 |
+
+### Manually Passing Filter Array (Livewire)
+When using Livewire to filter data, subsequent query string changes do not trigger new requests. We can work around this by manually passing an array of filters.
+
+Example:
+```php
+User::filter(['username' => 'mehrad123'])->get();
+```
+
+Another example:
+```php
+User::filter([
+    'username' => [
+        'contain' => 'medhrad',
+    ],
+    'email' => [
+        'contain' => 'startapp.id',
+     ]
+])->get();
+```
+
+You can also combine this with conditional filters:
+```php
+User::filter([
+    'username' => 'mehrad123',
+    'email' => [
+        'contains' => 'startapp.id'
+    ]
+], 'username')->get();
+```
+
+The above would only query the username (not the email) since only the username was included as a conditional.
+
+**Note that the filter array must be passed before the conditionals.**
