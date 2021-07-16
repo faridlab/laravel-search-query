@@ -50,12 +50,18 @@ trait FilterQueryString {
 
     private function getFilters($filters)
     {
+        $passedFilters = ! empty($filters) && is_array($filters[0]) ? array_shift($filters) : null;
+                
         $filter = function ($key) use($filters) {
 
             $filters = $filters ?: $this->filters ?: [];
 
             return $this->unguardFilters != true ? in_array($key, $filters) : true;
         };
+        
+        if ($passedFilters) {
+            return array_filter($passedFilters, $filter, ARRAY_FILTER_USE_KEY) ?? [];
+        }
 
         return array_filter(request()->query(), $filter, ARRAY_FILTER_USE_KEY) ?? [];
     }
