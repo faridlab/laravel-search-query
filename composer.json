@@ -1,6 +1,6 @@
 {
-  "name": "faridlab/laravel-grammatical-query",
-  "description": "Grammatical Query - Laravel package for filtering queries based on url query string parameters",
+  "name": "faridlab/laravel-search-query",
+  "description": "Search Query - Laravel package for filtering queries based on url query string parameters",
   "keywords": [
     "query",
     "query-string",
@@ -9,7 +9,7 @@
     "filter-querystring",
     "filter-query-string"
   ],
-  "homepage": "https://github.com/faridlab/laravel-grammatical-query",
+  "homepage": "https://github.com/faridlab/laravel-search-query",
   "license": "MIT",
   "type": "library",
   "authors": [
