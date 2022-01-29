@@ -1,8 +1,8 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Tests;
+namespace SearchQuery\FilterQueryString\Tests;
 
-use GrammaticalQuery\FilterQueryString\Models\User;
+use SearchQuery\FilterQueryString\Models\User;
 
 class CustomFilterTest extends TestCase
 {

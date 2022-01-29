@@ -1,9 +1,9 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString;
+namespace SearchQuery\FilterQueryString;
 
 use Illuminate\Pipeline\Pipeline;
-use GrammaticalQuery\FilterQueryString\Filters\{
+use SearchQuery\FilterQueryString\Filters\{
     WhereClause,
     SelectClause,
     LimitClause,

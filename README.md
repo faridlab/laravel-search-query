@@ -82,7 +82,7 @@ So we have to design a way to make our filters logics separated from each other 
 2. Then you should `use` the `FilterQueryString` trait in your model, And define `$filters` property which can be consist of [available filters](#Available-Methods) or your [custom filters](#custom-filters).
 
 ```php
-use GrammaticalQuery\FilterQueryString\FilterQueryString;
+use SearchQuery\FilterQueryString\FilterQueryString;
 
 class User extends Model
 {

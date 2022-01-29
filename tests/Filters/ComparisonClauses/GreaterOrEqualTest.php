@@ -1,9 +1,9 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Tests\Filters\ComparisonClauses;
+namespace SearchQuery\FilterQueryString\Tests\Filters\ComparisonClauses;
 
-use GrammaticalQuery\FilterQueryString\Models\User;
-use GrammaticalQuery\FilterQueryString\Tests\TestCase;
+use SearchQuery\FilterQueryString\Models\User;
+use SearchQuery\FilterQueryString\Tests\TestCase;
 
 class GreaterOrEqualTest extends TestCase
 {

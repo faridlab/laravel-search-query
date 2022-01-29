@@ -1,10 +1,10 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Tests\Filters;
+namespace SearchQuery\FilterQueryString\Tests\Filters;
 
 use Illuminate\Support\Facades\Route;
-use GrammaticalQuery\FilterQueryString\Models\User;
-use GrammaticalQuery\FilterQueryString\Tests\TestCase;
+use SearchQuery\FilterQueryString\Models\User;
+use SearchQuery\FilterQueryString\Tests\TestCase;
 
 class WhereLikeClauseTest extends TestCase
 {

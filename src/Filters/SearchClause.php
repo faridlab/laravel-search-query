@@ -1,6 +1,6 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Filters;
+namespace SearchQuery\FilterQueryString\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Schema;

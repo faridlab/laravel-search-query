@@ -1,6 +1,6 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Filters\LikeClauses;
+namespace SearchQuery\FilterQueryString\Filters\LikeClauses;
 
 trait WhereNotContainClause
 {

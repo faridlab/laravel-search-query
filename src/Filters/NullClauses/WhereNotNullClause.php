@@ -1,6 +1,6 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Filters\NullClauses;
+namespace SearchQuery\FilterQueryString\Filters\NullClauses;
 
 trait WhereNotNullClause
 {

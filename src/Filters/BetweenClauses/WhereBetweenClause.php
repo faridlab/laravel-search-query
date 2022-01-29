@@ -1,6 +1,6 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Filters\BetweenClauses;
+namespace SearchQuery\FilterQueryString\Filters\BetweenClauses;
 
 trait WhereBetweenClause
 {

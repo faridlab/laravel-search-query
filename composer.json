@@ -31,7 +31,7 @@
       "helpers/helpers.php"
     ],
     "psr-4": {
-      "GrammaticalQuery\\FilterQueryString\\": "src/"
+      "SearchQuery\\FilterQueryString\\": "src/"
     }
   },
   "autoload-dev": {
@@ -39,8 +39,8 @@
       "database"
     ],
     "psr-4": {
-      "GrammaticalQuery\\FilterQueryString\\Models\\": "models/",
-      "GrammaticalQuery\\FilterQueryString\\Tests\\": "tests/"
+      "SearchQuery\\FilterQueryString\\Models\\": "models/",
+      "SearchQuery\\FilterQueryString\\Tests\\": "tests/"
     }
   },
   "scripts": {

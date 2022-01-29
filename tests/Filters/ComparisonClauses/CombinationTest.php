@@ -1,8 +1,8 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Tests\Filters\ComparisonClauses;
+namespace SearchQuery\FilterQueryString\Tests\Filters\ComparisonClauses;
 
-use GrammaticalQuery\FilterQueryString\Tests\TestCase;
+use SearchQuery\FilterQueryString\Tests\TestCase;
 
 class CombinationTest extends TestCase
 {

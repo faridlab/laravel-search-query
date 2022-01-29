@@ -1,8 +1,8 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Filters;
+namespace SearchQuery\FilterQueryString\Filters;
 
-use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
+use SearchQuery\FilterQueryString\Filters\ComparisonClauses\{
     EqualClause,
     GreaterThanClause,
     GreaterThanEqualClause,
@@ -11,7 +11,7 @@ use GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses\{
     NotEqualClause
 };
 
-use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
+use SearchQuery\FilterQueryString\Filters\LikeClauses\{
     WhereLikeClause,
     WhereNotLikeClause,
     WhereContainClause,
@@ -20,14 +20,14 @@ use GrammaticalQuery\FilterQueryString\Filters\LikeClauses\{
     WhereEndWithClause,
 };
 
-use GrammaticalQuery\FilterQueryString\Filters\BetweenClauses\{
+use SearchQuery\FilterQueryString\Filters\BetweenClauses\{
     WhereBetweenClause,
     WhereNotBetweenClause,
     WhereInClause,
     WhereNotInClause
 };
 
-use GrammaticalQuery\FilterQueryString\Filters\NullClauses\{
+use SearchQuery\FilterQueryString\Filters\NullClauses\{
     WhereNullClause,
     WhereNotNullClause
 };

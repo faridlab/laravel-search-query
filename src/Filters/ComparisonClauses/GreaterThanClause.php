@@ -1,6 +1,6 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Filters\ComparisonClauses;
+namespace SearchQuery\FilterQueryString\Filters\ComparisonClauses;
 
 trait GreaterThanClause
 {

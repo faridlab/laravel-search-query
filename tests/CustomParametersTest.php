@@ -1,9 +1,9 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString\Tests;
+namespace SearchQuery\FilterQueryString\Tests;
 
 use Illuminate\Support\Facades\Route;
-use GrammaticalQuery\FilterQueryString\Models\User;
+use SearchQuery\FilterQueryString\Models\User;
 
 class CustomParametersTest extends TestCase
 {

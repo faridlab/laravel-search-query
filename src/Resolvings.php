@@ -1,6 +1,6 @@
 <?php
 
-namespace GrammaticalQuery\FilterQueryString;
+namespace SearchQuery\FilterQueryString;
 
 trait Resolvings {
 
