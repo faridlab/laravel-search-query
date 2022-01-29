@@ -40,6 +40,7 @@
         - [Not Between](#not-between)
         - [Is Null](#is-null)
         - [Is Not Null](#is-not-null)
+        - [Distinct](#distinct)
     - [Custom Filters](#Custom-Filters)
     - [Conditional Filters](#Conditional-Filters)
 
@@ -157,6 +158,7 @@ User::select('name')->filter()->get();
 | NOT BETWEEN | (notbetween) | NOT BETWEEN | ...WHERE *fieldname NOT BETWEEN {search} AND {search}*... |
 | IS NULL | (isnull) | IS NULL | ...WHERE *fieldname IS NULL*... |
 | IS NOT NULL | (isnotnull) | IS NOT NULL | ...WHERE *fieldname IS NOT NULL*... |
+| DISTINCT | (distinct) | DISTINCT | ...WHERE *DISTINCT(fieldname)*... |
 | ORDER BY | (orderby) | ORDER BY | ...ORDER BY *fieldname {orderby}*... |
 
 For the purpose of explaining each method, Imagine we have such data in our `users` table:
@@ -728,6 +730,28 @@ protected $filters = [];
 `https://startapp.id/api/v1/users?deleted_at[isnotnull]=null`
 
 `https://startapp.id/api/v1/users?deleted_at[isnotnull]`
+
+### Distinct
+```
+fieldname[distinct]: boolean ― optional
+```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[distinct]={true|1}
+
+> GET /api/v1/users?first_name[distinct]=true
+```
+
+In Users.php
+```php
+protected $filters = ['distinct'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?first_name[distinct]=true`
+
+`https://startapp.id/api/v1/users?first_name[distinct]=1`
+
+`https://startapp.id/api/v1/users?first_name[distinct]`
 
 ### Where Clause (default filter)
 Generally when your query string parameters are not one of previous available methods, It'll get filtered by the default filter which is the `where` sql statement. It's the proper filter when you need to directly filter one of your table's columns.
