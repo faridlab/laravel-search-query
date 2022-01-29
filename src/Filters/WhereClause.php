@@ -32,6 +32,10 @@ use SearchQuery\FilterQueryString\Filters\NullClauses\{
     WhereNotNullClause
 };
 
+use SearchQuery\FilterQueryString\Filters\DistinctClauses\{
+    WhereDistinctClauses
+};
+
 use Illuminate\Database\Eloquent\Builder;
 
 class WhereClause extends BaseClause {
@@ -57,6 +61,8 @@ class WhereClause extends BaseClause {
     use WhereNullClause;
     use WhereNotNullClause;
 
+    use WhereDistinctClauses;
+
     protected $availableFilters = [
         'default' => 'where',
         'where' => 'where',
@@ -79,6 +85,7 @@ class WhereClause extends BaseClause {
         'notbetween' => 'notBetween',
         'isnull' => 'isNull',
         'isnotnull' => 'isNotNull',
+        'distinct' => 'distinct',
     ];
 
     protected function apply($query): Builder
