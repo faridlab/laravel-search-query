@@ -20,8 +20,8 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "laravel/framework": ">=6.20.14"
+    "php": "^8.0.2",
+    "laravel/framework": "^9.0"
   },
   "require-dev": {
     "orchestra/testbench": "^4.0"
