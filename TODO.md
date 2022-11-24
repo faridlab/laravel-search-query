@@ -4,6 +4,7 @@ TODO:
 * [X] page: `integer default(1) ― optional`
 * [X] limit: `integer default(25) ― optional`
 * [X] relationship: `array ― optional`
+* [X] count: `array ― optional`
 * [X] withtrashed: `boolean default(false) ― optional`
 * [X] orderby: `array ― optional`
 
