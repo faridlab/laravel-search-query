@@ -9,6 +9,7 @@ use SearchQuery\FilterQueryString\Filters\{
     LimitClause,
     SearchClause,
     RelationshipClause,
+    CountClause,
     WithTrashedClause,
     OrderClause,
 };
@@ -24,6 +25,7 @@ trait FilterQueryString {
         'limit' => LimitClause::class,
         'page' => LimitClause::class,
         'relationship' => RelationshipClause::class,
+        'count' => CountClause::class,
         'withtrashed' => WithTrashedClause::class,
         'orderby' => OrderClause::class,
     ];
