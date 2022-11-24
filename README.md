@@ -18,6 +18,7 @@
         - [Page](#page)
         - [Limit](#limit)
         - [Relationship](#relationship)
+        - [Count](#count)
         - [With Trashed](#withtrashed)
         - [Order By](#orderby)
         - [Where](#where)
@@ -113,6 +114,7 @@ User::select('name')->filter()->get();
 * [page](#page): `integer default(1) ― optional`
 * [limit](#limit): `integer default(25) ― optional`
 * [relationship](#relationship): `array ― optional`
+* [count](#count): `array ― optional`
 * [withtrashed](#withtrashed): `boolean default(false) ― optional`
 * [orderby](#orderby): `array ― optional`
 * [fieldname[where]](#where): `string|array ― optional`
@@ -256,6 +258,7 @@ protected $filters = ['limit'];
 ```
 **Example**:
 `https://startapp.id/api/v1/users?limit=25`
+
 ### Relationship
 ```
 relationship: array|string ― optional
@@ -279,6 +282,32 @@ protected $filters = ['relationship'];
 `https://startapp.id/api/v1/users?relationship=role`
 
 `https://startapp.id/api/v1/users?relationship[]=role&relationship[]=permissions`
+
+
+### Count
+```
+count: array|string ― optional
+```
+Convention:
+```
+> GET /api/v1/users?count={relation}
+> GET /api/v1/users?count[]={relation1}
+> GET /api/v1/users?count[]={relation2}
+
+> GET /api/v1/users?count=addresses
+> GET /api/v1/users?count[]=photos
+> GET /api/v1/users?count[]=accounts
+```
+
+In Users.php
+```php
+protected $filters = ['count'];
+```
+**Example**:
+`https://startapp.id/api/v1/users?count=addresses`
+
+`https://startapp.id/api/v1/users?count[]=photos&count[]=accounts`
+
 ### Withtrashed
 ```
 withtrashed: boolean default(false) ― optional
