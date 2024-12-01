@@ -273,6 +273,9 @@ Convention:
 > GET /api/v1/users?relationship=role
 > GET /api/v1/users?relationship[]=role
 > GET /api/v1/users?relationship[]=permissions
+
+> GET /api/v1/users?relationship[role]={search} # search for role id as default field value
+> GET /api/v1/users?relationship[role][name]={search} # search for role field `name`
 ```
 
 In Users.php
