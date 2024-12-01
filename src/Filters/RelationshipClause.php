@@ -13,7 +13,7 @@ class RelationshipClause extends BaseClause {
                 if(!is_numeric($relation)) {
                     // relationship[showcases]=search-value -> default field ID
                     // relationship[showcases][field]=search-value
-                    $query->with([$relation => function($query) use($value) {
+                    $query->whereHas($relation, function($query) use($value) {
                         if(is_array($value)) {
                             foreach ((array) $value as $filter => $search) {
                                 $query->where($filter, $search);
@@ -23,10 +23,9 @@ class RelationshipClause extends BaseClause {
                         }
                         $filter = 'id';
                         $query->where($filter, $value)->withTrashed();
-                    }]);
+                    });
                     continue;
                 }
-
                 $query->with([$value => function($query) {
                     $query->withTrashed();
                 }]);
