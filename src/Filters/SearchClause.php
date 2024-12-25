@@ -16,7 +16,7 @@ class SearchClause extends BaseClause {
         $value = $this->values;
         $query->where(function($query) use($table_name, $columns, $value) {
             foreach ($columns as $field) {
-                $query->orWhere("{$table_name}.{$field}", 'ilike', "%$value%");
+                $query->orWhere($filter, 'ilike', "%$value%");
             }
         });
         return $query;
