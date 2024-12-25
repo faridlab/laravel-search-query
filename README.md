@@ -225,6 +225,8 @@ protected $filters = ['search'];
 |:---:|:--------:|:--------------------------:|:----------:|:----:|:----------:|
 |  5  | farid    | farid<i></i>@startapp.id   | faridlab   |  21  | 2021-03-12 |
 
+Note: please more specific to defined what field you want to search, this filter not recommend in production,
+because this filter will search all fields, and make your app perf slower.
 ### Page
 ```
 page: integer default(1) ― optional
