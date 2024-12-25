@@ -13,6 +13,7 @@ use SearchQuery\FilterQueryString\Filters\ComparisonClauses\{
 
 use SearchQuery\FilterQueryString\Filters\LikeClauses\{
     WhereLikeClause,
+    WhereILikeClause,
     WhereNotLikeClause,
     WhereContainClause,
     WhereNotContainClause,
@@ -47,6 +48,7 @@ class WhereClause extends BaseClause {
     use LessThanEqualClause;
 
     use WhereLikeClause;
+    use WhereILikeClause;
     use WhereNotLikeClause;
     use WhereContainClause;
     use WhereNotContainClause;
@@ -74,6 +76,7 @@ class WhereClause extends BaseClause {
         'ltEq' => 'lessThanEqual',
         'notEq' => 'notEqual',
         'like' => 'like',
+        'ilike' => 'ilike',
         'contain' => 'contain',
         'notcontain' => 'notContain',
         'startwith' => 'startwith',
