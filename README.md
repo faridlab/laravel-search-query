@@ -12,6 +12,7 @@
         - [Comparisons](#Comparisons)
         - [In](#In)
         - [Like](#Like)
+        - [ILike](#ILike)
         - [Where clause](#Where-Clause-Default-Filter)
         - [Fields](#fields)
         - [Search](#search)
@@ -561,6 +562,24 @@ protected $filters = [];
 ```
 **Example**:
 `https://startapp.id/api/v1/users?username[like]=faridlab`
+
+### ILike
+```
+fieldname[ilike]: string ― optional
+```
+Convention:
+```
+> GET /api/v1/users?{fieldname}[ilike]={searchtext}
+
+> GET /api/v1/users?username[ilike]=faridlab
+```
+
+In Users.php
+```php
+protected $filters = [];
+```
+**Example**:
+`https://startapp.id/api/v1/users?username[ilike]=faridlab`
 
 ### Not Like
 ```
